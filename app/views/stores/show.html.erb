@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="card-guide">
+            <div class="guide-car-left-part">
+                <div class="pic-guide-left-part guide-show-pic-countries" id="card-pic-guide" style="background-image:url('<%= @store.photo %>')">
+                </div>
+            </div>
+            <div class="guide-car-right-part">
+                <div class="up-part-flexed" style="display: flex;justify-content: space-between;">
+                    <div class="title-guide-right-part">
+                        <h3 style="font-weight: 500;"> <%= @store.name %></h3>
+                    </div>
+                    <div class="flag-guide-right-part">
+                    </div>
+                </div>
+                <div class="region-guide-right-part">
+                    <p style="font-size: 14px;"> <span style="color:#099c03"> Adresse :</span>
+                        <%= @store.address %>
+                    </p>
+                </div>
+                <div class="comment-guide-right-part">
+                    <p style="font-size: 14px;"> <span style="color:#099c03">Téléphone :</span>
+                        <%= @store.phone %>
+                    </p>
+                </div>
+                <div class="down-part-flexed" style="display: flex;justify-content: space-between;">
+                    <p style="font-size: 14px;"> <span style="color:#099c03"> Horraires :</span>
+                        <%= @store.schedule %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="padded" style="padding: 3%;"></div>
+        <div class="text-center">
+          <div id="map" style="width: 100%; height: 400px;"></div>
+        </div>
+    </div>
+</div>
+<div class="padded" style="padding: 3%;"></div>
+<div class="padded" style="padding: 62px; background-color:grey; color:white;text-align: center;background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1505484128222-46ced733ba01?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
+  THIS IS FOR ADD !
+</div>
+
+
+
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @markers.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
+  <% end %>
+<% end %>

@@ -1,0 +1,66 @@
+.card-guide {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    background: white;
+}
+
+.card-guide a {
+    text-decoration: none;
+    color: black;
+}
+.left-part-card-guide {
+  width: 60%;
+}
+.card-guide-show {
+    margin-top: 20px;
+    display: flex;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.card-guide:hover {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.17), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.pic-guide-left-part {
+    min-width: 200px;
+}
+
+.pic-guide-left-part img {
+    max-height: 170px;
+    height: 200px;
+    max-width: 200px;
+}
+.guide-show-pic {
+    height: 100%;
+    background-size: cover !important;
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.guide-show-pic-countries {
+    height: 100%;
+    background-size: cover !important;
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.guide-car-right-part {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-bottom: 2%;
+}
+#map {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}

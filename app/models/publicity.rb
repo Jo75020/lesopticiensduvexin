@@ -1,0 +1,2 @@
+class Publicity < ApplicationRecord
+end
